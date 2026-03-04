@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
         return PlayerPrefs.GetInt("Lives");
     }
 
-    public void SpendLives()
+    public void SpendLife()
     {
         int lives = GetCurrentLives() - 1;
         PlayerPrefs.SetInt("Lives", lives);

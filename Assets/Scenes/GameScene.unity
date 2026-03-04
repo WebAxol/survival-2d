@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 81455145}
   - component: {fileID: 81455146}
   m_Layer: 0
-  m_Name: Mountain Left
+  m_Name: MountainsFrag1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1208,6 +1208,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747745415}
   m_CullTransparentMesh: 1
+--- !u!1 &816516078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 816516079}
+  m_Layer: 0
+  m_Name: Hills
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &816516079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816516078}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1374943782}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &824757697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,7 +1666,7 @@ GameObject:
   - component: {fileID: 929567338}
   - component: {fileID: 929567339}
   m_Layer: 0
-  m_Name: Sky Left (1)
+  m_Name: SkyFrag2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1831,7 +1862,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIController
   timeText: {fileID: 0}
-  spendLives: {fileID: 0}
+  lifeSprite: {fileID: 0}
+  spentLifeSprite: {fileID: 0}
 --- !u!1 &1079609702
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,7 +2118,7 @@ GameObject:
   - component: {fileID: 1231152912}
   - component: {fileID: 1231152913}
   m_Layer: 0
-  m_Name: Sky Left
+  m_Name: SkyFrag1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2319,6 +2351,7 @@ Transform:
   m_Children:
   - {fileID: 1182682372}
   - {fileID: 1079609703}
+  - {fileID: 816516079}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1393686473
@@ -2502,7 +2535,7 @@ GameObject:
   - component: {fileID: 1637084320}
   - component: {fileID: 1637084321}
   m_Layer: 0
-  m_Name: Mountain Left (1)
+  m_Name: MountainsFrag2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
