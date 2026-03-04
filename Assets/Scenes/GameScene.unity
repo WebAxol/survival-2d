@@ -648,6 +648,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -767,13 +768,27 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.2360706, y: 1.4445591, z: -8.6904}
+  m_LocalPosition: {x: -4.8839293, y: -0.9254408, z: -8.6904}
   m_LocalScale: {x: 0.743, y: 0.743, z: 0.743}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 850672658}
-  m_Father: {fileID: 1889178937}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c404d09b4424fcfeb769fa66782f12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParallaxController
+  parallaxFactor: 1
+  tracked: {fileID: 1889178937}
 --- !u!1 &583552467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1064,39 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &601168207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 601168208}
+  m_Layer: 0
+  m_Name: Clouds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &601168208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601168207}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1393686474}
+  - {fileID: 870736026}
+  m_Father: {fileID: 1374943782}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,11 +1638,11 @@ Transform:
   m_GameObject: {fileID: 870736025}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.31, y: 2.81, z: 0}
-  m_LocalScale: {x: 1.2330345, y: 0.92897016, z: 1}
+  m_LocalPosition: {x: -2.4055488, y: 2.2192588, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1231152912}
+  m_Father: {fileID: 601168208}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &870736027
 SpriteRenderer:
@@ -1873,6 +1921,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1079609703}
+  - component: {fileID: 1079609704}
   m_Layer: 0
   m_Name: Mountains
   m_TagString: Untagged
@@ -1897,6 +1946,20 @@ Transform:
   - {fileID: 1637084320}
   m_Father: {fileID: 1374943782}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1079609704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079609702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c404d09b4424fcfeb769fa66782f12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParallaxController
+  parallaxFactor: 0.5
+  tracked: {fileID: 1889178937}
 --- !u!1 &1147224498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2024,6 +2087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1182682372}
   - component: {fileID: 1182682373}
+  - component: {fileID: 1182682374}
   m_Layer: 0
   m_Name: Sky
   m_TagString: Untagged
@@ -2107,6 +2171,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1182682374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182682371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c404d09b4424fcfeb769fa66782f12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParallaxController
+  parallaxFactor: 0.9
+  tracked: {fileID: 1889178937}
 --- !u!1 &1231152911
 GameObject:
   m_ObjectHideFlags: 0
@@ -2136,9 +2214,7 @@ Transform:
   m_LocalPosition: {x: -0.955, y: -0.091, z: 0}
   m_LocalScale: {x: 0.04558987, y: 0.10920665, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1393686474}
-  - {fileID: 870736026}
+  m_Children: []
   m_Father: {fileID: 1182682372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1231152913
@@ -2352,6 +2428,7 @@ Transform:
   - {fileID: 1182682372}
   - {fileID: 1079609703}
   - {fileID: 816516079}
+  - {fileID: 601168208}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1393686473
@@ -2380,11 +2457,11 @@ Transform:
   m_GameObject: {fileID: 1393686473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.35, y: 2.81, z: 0}
-  m_LocalScale: {x: 1.2330345, y: 0.92897016, z: 1}
+  m_LocalPosition: {x: -12.105196, y: 2.2192588, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1231152912}
+  m_Father: {fileID: 601168208}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1393686475
 SpriteRenderer:
@@ -3271,10 +3348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1056512746704520059, guid: 51109bc71087b7e12aa9aa5ea3897887, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 519420032}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51109bc71087b7e12aa9aa5ea3897887, type: 3}
 --- !u!1660057539 &9223372036854775807
@@ -3288,3 +3362,4 @@ SceneRoots:
   - {fileID: 1004971575}
   - {fileID: 1456399829}
   - {fileID: 1353867631}
+  - {fileID: 519420032}
