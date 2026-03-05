@@ -29,15 +29,15 @@ public class UIController : MonoBehaviour
 
     public void UpdateLives()
     {
-        lives = PlayerPrefs.GetInt("Lives");
+        // lives = PlayerPrefs.GetInt("Lives");
         
-        int maxLives = livesImages.Length;
+        // int maxLives = livesImages.Length;
 
-        for(int i = 0; i < lives; i++){
-            livesImages[i].sprite = lifeSprite;
-        }
-        for(int i = lives; i < maxLives; i++){
-            livesImages[i].sprite = spentLifeSprite;
-        }
+        // for(int i = 0; i < lives; i++){
+        //     livesImages[i].sprite = lifeSprite;
+        // }
+        // for(int i = lives; i < maxLives; i++){
+        //     livesImages[i].sprite = spentLifeSprite;
+        // }
     }
 }

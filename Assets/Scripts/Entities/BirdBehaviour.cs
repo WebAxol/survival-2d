@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class BirdBehaviour : MonoBehaviour{
 
+    public Spawnable _spawnable; 
+
     public float speed;
 
     private void OnCollisionEnter2D(Collision2D collision){
         
         if (collision.gameObject.CompareTag("Player")){
-            GameObject.Destroy(this.gameObject);
+            _spawnable.Despawn();
         }
     }
 
     void Update(){
         this.transform.position += Vector3.left * Time.deltaTime * speed;
-        if(transform.position.x < -50) GameObject.Destroy(this.gameObject);
     }
 }
