@@ -1,25 +1,23 @@
 using System.Collections.Generic;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
-using Unity.VisualScripting;
 
-public class Spawner : MonoBehaviour
-{
+/// <summary>
+/// Instantiates a given game-object or prefab based on internal conditions.
+/// It handles the deactivation of gameobjects and their reutilization.
+/// </summary>
+public class Spawner : MonoBehaviour{
+
     public GameObject prefab;
     protected List<GameObject> activeObjects = new List<GameObject>();
     protected List<GameObject> pool = new List<GameObject>(); 
 
-    public float offsetX;
-    public float offsetY;
-    public float maxActive;
-    public float delay;
+    public float offsetX = 0;
+    public float offsetY = 0;
+    public float maxActive = 5;
 
-    void Start(){
-        StartCoroutine(SpawnerTime());
-    }
+    void Start(){}
 
-    protected virtual Vector3 SetupPosition(){
+    protected Vector3 SetupPosition(Transform transform){
         return new Vector3(
             transform.position.x,
             transform.position.y,
@@ -27,7 +25,7 @@ public class Spawner : MonoBehaviour
         );
     }
 
-    public GameObject Spawn(){
+    protected GameObject Spawn(){
         
         GameObject obj;
 
@@ -37,7 +35,7 @@ public class Spawner : MonoBehaviour
 
         obj = Instantiate(
             prefab,
-            SetupPosition(),
+            SetupPosition(transform),
             Quaternion.identity
         );
 
@@ -60,7 +58,7 @@ public class Spawner : MonoBehaviour
 
         var recycled = pool[0];
         
-        recycled.transform.position = SetupPosition();
+        recycled.transform.position = SetupPosition(transform);
         
         pool.RemoveAt(0);
         activeObjects.Add(recycled);
@@ -78,21 +76,23 @@ public class Spawner : MonoBehaviour
         activeObjects.Remove(obj);
     }
 
-    public void HandleDestroy(GameObject obj){
+    public virtual void HandleDestroy(GameObject obj){
 
         activeObjects.Remove(obj);
         pool.Remove(obj);
     }
 
-    public void HandleDespawn(GameObject obj){
-        ReturnToPool(obj);
-    }
+    public virtual void HandleDespawn(GameObject obj){
+    
+        int n = activeObjects.Count;
 
-    IEnumerator SpawnerTime(){
+        if(activeObjects.IndexOf(obj) == 0){
 
-        while (true){
-            yield return new WaitForSeconds(delay);
-            if(activeObjects.Count < maxActive) Spawn();
         }
+        else if(activeObjects.IndexOf(obj) == n - 1){
+            
+        }
+    
+        ReturnToPool(obj);
     }
 }
