@@ -1,26 +1,33 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
 
     public UIController uiController;
     static public GameController Instance;
+    public SFXManager sfxManager;
+    bool gameEnded = false;
+
 
     public void Awake()
     {
-        PlayerPrefs.SetInt("TimeToWin", 15);
+        PlayerPrefs.SetFloat("TimeToWin", 25);
         PlayerPrefs.SetInt("Lives",3);
 
         Instance = this;
         Instance.SetReferences();
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
-
+    
     void SetReferences()
     {
-        if(!uiController) uiController = FindAnyObjectByType<UIController>(); 
+        if(uiController == null) uiController = FindAnyObjectByType<UIController>(); 
+        if(sfxManager == null)   sfxManager = FindAnyObjectByType<SFXManager>();
 
         var timeToWin = PlayerPrefs.GetInt("TimeToWin");
+
+        sfxManager.PlayBackgroundSound();
 
         init();
     }
@@ -29,15 +36,40 @@ public class GameController : MonoBehaviour
         if (uiController) uiController.Update();
     }
 
+
+    void Update(){
+        float time = PlayerPrefs.GetFloat("TimeToWin");
+        PlayerPrefs.SetFloat("TimeToWin", time - Time.deltaTime);
+
+        if(time <= 0 && !gameEnded){ 
+            gameEnded = true;
+            SceneManager.LoadScene("EndScene");
+        }
+    }
+
     public int GetCurrentLives()
     {
         return PlayerPrefs.GetInt("Lives");
     }
 
-    public void SpendLives()
+    private void SpendLives()
     {
         int lives = GetCurrentLives() - 1;
         PlayerPrefs.SetInt("Lives", lives);
         uiController.Update();
+
+        if(lives == 0 && !gameEnded){ 
+            gameEnded = true;
+            SceneManager.LoadScene("EndScene");
+        }
+    }
+
+    public void HandleHit(){
+        SpendLives();
+        sfxManager.PlayCollectableSound();
+    }
+
+    public void BackToMenu(){
+        SceneManager.LoadScene("Menu");
     }
 }   

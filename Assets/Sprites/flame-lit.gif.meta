@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8ccd4207c19a738aca791a0b33950168
+guid: d942696f433e72461a7de1dc5ccd39fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7220757562210302203
-    second: Hills_2_0
+      213: -6255899104512726256
+    second: flame-lit_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hills_2_0
+      name: flame-lit_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 12
         y: 0
-        width: 2048
-        height: 503
+        width: 163
+        height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bf8b2c0eeb8453460800000000000000
-      internalID: 7220757562210302203
+      spriteID: 01ba5dcd8e49e29a0800000000000000
+      internalID: -6255899104512726256
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 639cf8215c80e1ddc827697e542045fb
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hills_2_0: 7220757562210302203
+      flame-lit_0: -6255899104512726256
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

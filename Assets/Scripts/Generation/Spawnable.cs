@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Spawnable : MonoBehaviour
 {
-    protected Spawner spawner;
+    public Spawner spawner;
     protected virtual void OnSpawn(){}
     public void SetSpawner(Spawner spawner){
         this.spawner = spawner;
@@ -11,6 +11,7 @@ public class Spawnable : MonoBehaviour
     public virtual void Despawn()
     {
         if (spawner != null){
+            Debug.Log("Despawn");
             spawner.HandleDespawn(this.gameObject);
         }
         else{

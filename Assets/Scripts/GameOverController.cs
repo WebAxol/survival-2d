@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour {
 
@@ -13,7 +14,7 @@ public class GameOverController : MonoBehaviour {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
         
-        if(PlayerPrefs.GetInt("Birds", 0) >= PlayerPrefs.GetInt("BirdsToWin", 5))
+        if(PlayerPrefs.GetInt("Lives", 0) > 0)
         {
             TriggerWinAnimation();
             panelText.text = "You Won!";
@@ -28,25 +29,20 @@ public class GameOverController : MonoBehaviour {
 
         scoreText.text = "Score: " + PlayerPrefs.GetInt("Score", 0).ToString();
     }
-
     
     public void TriggerWinAnimation(){
-
-        Debug.Log(ninaSprite);
-
         ninaSprite.GetComponent<Animator>().SetTrigger("hasWon");
     }
 
     public void TriggerDeathAnimation(){
-
-        Debug.Log(ninaSprite);
-
-
         ninaSprite.GetComponent<Animator>().SetTrigger("isDead");
     }
 
-    void Update()
-    {
-        
+    public void PlayAgain(){
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void BackToMenu(){
+        SceneManager.LoadScene("Menu");
     }
 }

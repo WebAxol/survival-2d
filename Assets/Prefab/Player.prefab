@@ -83,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1383623083, guid: c5b6cd35c2a4e4cadade86d30432a876, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -195,6 +195,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   spriteRenderer: {fileID: 4973634666023508288}
   animator: {fileID: 6012177608927313827}
-  moveSpeed: 4
-  jumpForce: 5
+  moveSpeed: 6
+  jumpForce: 0
   rig: {fileID: 1763055282570643303}

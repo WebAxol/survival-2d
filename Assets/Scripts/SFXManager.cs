@@ -7,6 +7,11 @@ public class SFXManager : MonoBehaviour {
     public AudioClip deathSound;
     public AudioClip collectableSound;
 
+    private AudioSource audioSource;
+
+    void Awake(){
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void Play(AudioClip audio){
         AudioSource.PlayClipAtPoint(
@@ -25,6 +30,8 @@ public class SFXManager : MonoBehaviour {
         Play(deathSound);
     }
     public void PlayBackgroundSound(){
-        Play(backgroundSound);
+        audioSource.clip = backgroundSound;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 }

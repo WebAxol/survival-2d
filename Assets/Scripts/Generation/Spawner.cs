@@ -11,13 +11,11 @@ public class Spawner : MonoBehaviour{
     protected List<GameObject> activeObjects = new List<GameObject>();
     protected List<GameObject> pool = new List<GameObject>(); 
 
-    public float offsetX = 0;
-    public float offsetY = 0;
     public float maxActive = 5;
 
     void Start(){}
 
-    protected Vector3 SetupPosition(Transform transform){
+    protected Vector3 SetupPosition(){
         return new Vector3(
             transform.position.x,
             transform.position.y,
@@ -29,13 +27,13 @@ public class Spawner : MonoBehaviour{
         
         GameObject obj;
 
-        if(pool.Count > 0){
-            return ReturnFromPool();
-        }
+        // if(pool.Count > 0){
+        //     return ReturnFromPool();
+        // }
 
         obj = Instantiate(
             prefab,
-            SetupPosition(transform),
+            SetupPosition(),
             Quaternion.identity
         );
 
@@ -49,8 +47,6 @@ public class Spawner : MonoBehaviour{
 
         activeObjects.Add(obj);
 
-        obj.SetActive(true);
-
         return obj;
     }
 
@@ -58,11 +54,10 @@ public class Spawner : MonoBehaviour{
 
         var recycled = pool[0];
         
-        recycled.transform.position = SetupPosition(transform);
+        recycled.transform.position = SetupPosition();
         
         pool.RemoveAt(0);
         activeObjects.Add(recycled);
-        recycled.SetActive(true);
 
         return recycled;
     }
@@ -71,28 +66,22 @@ public class Spawner : MonoBehaviour{
 
         if(obj == null) return;
 
-        obj.SetActive(false);
-        pool.Add(obj);
+        // obj.SetActive(false);
+        // pool.Add(obj);
         activeObjects.Remove(obj);
+
+        Destroy(obj);
     }
 
     public virtual void HandleDestroy(GameObject obj){
+
+        if(obj == null) return;
 
         activeObjects.Remove(obj);
         pool.Remove(obj);
     }
 
-    public virtual void HandleDespawn(GameObject obj){
-    
-        int n = activeObjects.Count;
-
-        if(activeObjects.IndexOf(obj) == 0){
-
-        }
-        else if(activeObjects.IndexOf(obj) == n - 1){
-            
-        }
-    
+    public virtual void HandleDespawn(GameObject obj){    
         ReturnToPool(obj);
     }
 }

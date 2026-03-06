@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ using UnityEngine;
 public class TimedSpawner : Spawner
 {
     public float delay = 3;
+    public float offsetY = 0;
 
     void Start(){
         StartCoroutine(SpawnerTime());
@@ -20,7 +22,14 @@ public class TimedSpawner : Spawner
 
         while (true){
             yield return new WaitForSeconds(delay);
-            if(activeObjects.Count < maxActive) Spawn();
+            if(activeObjects.Count < maxActive){ 
+                var obj = Spawn();
+                obj.transform.position += new Vector3(
+                    0f,
+                    UnityEngine.Random.Range(-offsetY, offsetY),
+                    0f
+                );
+            }
         }
     }
 }

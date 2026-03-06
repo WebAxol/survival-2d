@@ -1,22 +1,49 @@
 using UnityEngine;
 
+/// <summary>
+/// Follows a given transform based on position deltas multiplied by a given
+/// parallax factor.
+/// </summary>
 public class ParallaxController : MonoBehaviour
 {
     [SerializeField] float parallaxFactor;
     public Transform tracked;
-    private Vector3  lastPosition;
+    public bool fixedX = false;
+    public bool fixedY = false;
+
+    public Vector3 startPosition;
+    public Vector3 trackedStart;
+
     void Start(){
-        lastPosition = tracked.position;
+        OnEnable();
+    }
+
+    void OnEnable(){
+
+        if(tracked == null) tracked = Camera.main.transform;
+
+        ResetReference();
+    }
+
+    void ResetReference(){
+        startPosition = transform.position;
+        trackedStart = tracked.position;
     }
 
     // Update is called once per frame
     void Update(){
-        Vector3 delta = tracked.position - lastPosition;
 
-        if(delta.magnitude < 0.01) return;
+        Vector3 delta = tracked.position - trackedStart;
 
-        gameObject.transform.position += new Vector3(delta.x * parallaxFactor, 0f, 0f);
+        Debug.Log(delta);
 
-        lastPosition = tracked.position;
+        float deltaX = fixedX ? 0f : delta.x * parallaxFactor;
+        float deltaY = fixedY ? 0f : delta.y * parallaxFactor;
+
+        transform.position = new Vector3(
+            startPosition.x + deltaX,
+            startPosition.y + deltaY,
+            startPosition.z
+        );
     }
 }
