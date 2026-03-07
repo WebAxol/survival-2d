@@ -5,6 +5,7 @@ public class SFXManager : MonoBehaviour {
     public AudioClip backgroundSound;
     public AudioClip winSound;
     public AudioClip deathSound;
+    public AudioClip hitSound;
     public AudioClip collectableSound;
 
     private AudioSource audioSource;
@@ -28,6 +29,10 @@ public class SFXManager : MonoBehaviour {
     }
     public void PlayDeathSound(){
         Play(deathSound);
+    }
+
+    public void PlayHitSound(){
+        Play(hitSound);
     }
     public void PlayBackgroundSound(){
         audioSource.clip = backgroundSound;

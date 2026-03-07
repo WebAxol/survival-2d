@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -48,8 +49,9 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current.spaceKey.wasPressedThisFrame)            
             jumpInput = IsGrounded();
 
-        Debug.Log(spriteRenderer.flipX);
-
+        if (Keyboard.current.downArrowKey.isPressed){
+            rig.AddForce(Vector2.down * 3, ForceMode2D.Impulse);
+        }
 
         animator.SetBool("isWalking", Mathf.Abs(xInput) > 0.0f);
         animator.SetBool("isJumping", !IsGrounded());        

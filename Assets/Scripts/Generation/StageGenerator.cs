@@ -27,15 +27,11 @@ public class StageGenerator : Spawner
 
         float x = GetRightEdge() + halfWidth;
 
-        Debug.Log(x);
-
         chunk.transform.position = new Vector3(
             x,
             transform.position.y,
             transform.position.z
         );
-
-        Debug.Log("ldwdw");
 
         chunk.SetActive(false);
         chunk.SetActive(true);
@@ -63,12 +59,7 @@ public class StageGenerator : Spawner
     {
         // bool back = obj.GetComponent<ViewportDespawnController>().despawnBack;
 
-        // Debug.Log(back);
-
         // if(!back) return;
-
-        Debug.Log("Spawner Handle");
-
         base.HandleDespawn(obj);
 
         SpawnRight();

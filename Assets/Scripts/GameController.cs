@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     {
         PlayerPrefs.SetFloat("TimeToWin", 25);
         PlayerPrefs.SetInt("Lives",3);
+        PlayerPrefs.SetInt("Score",0);
 
         Instance = this;
         Instance.SetReferences();
@@ -66,6 +67,16 @@ public class GameController : MonoBehaviour
 
     public void HandleHit(){
         SpendLives();
+        sfxManager.PlayHitSound();
+    }
+
+
+    public void HandleCollect(){
+        
+        int score = PlayerPrefs.GetInt("Score") + 10;
+
+        PlayerPrefs.SetInt("Score", score);
+
         sfxManager.PlayCollectableSound();
     }
 

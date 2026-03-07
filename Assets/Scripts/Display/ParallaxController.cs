@@ -35,8 +35,6 @@ public class ParallaxController : MonoBehaviour
 
         Vector3 delta = tracked.position - trackedStart;
 
-        Debug.Log(delta);
-
         float deltaX = fixedX ? 0f : delta.x * parallaxFactor;
         float deltaY = fixedY ? 0f : delta.y * parallaxFactor;
 

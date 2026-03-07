@@ -11,7 +11,6 @@ public class Spawnable : MonoBehaviour
     public virtual void Despawn()
     {
         if (spawner != null){
-            Debug.Log("Despawn");
             spawner.HandleDespawn(this.gameObject);
         }
         else{
